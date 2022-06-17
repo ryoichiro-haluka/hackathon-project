@@ -5,6 +5,20 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source":"/index.html",
+        "destination": "/Kamakura_Quiz.html"
+      },
+      {
+        "source":"/Kamakura_Quiz.html",
+        "destination": "/Kamakura_result.html"
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
     ]
   }
 }
