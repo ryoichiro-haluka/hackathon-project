@@ -2,12 +2,12 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>鎌倉宮のクイズ</title>
+    <title>鶴岡八幡宮のクイズ</title>
     <link rel="stylesheet" href="./Kamuka_Quize.css">
 </head>
 <body id="body">
     <header id="header">
-        <h1 class="title">鎌倉宮のクイズ</h1>
+        <h1 class="title">鶴岡八幡宮のクイズ</h1>
     </header>
     <h2 id="mon" class="mon">問題</h2>
     <div id="text_q" class="textbox"></div>
@@ -21,9 +21,9 @@
 <script type="text/javascript">
     //問題と解答
     qa = new Array();
-    qa[0] = ["鎌倉で一番新しい神社はどれでしょう？","鶴岡八幡宮","鎌倉宮","荏柄天神",2];
-    qa[1] = ["鎌倉宮が祀っている，鎌倉幕府打倒を果たし征夷大将軍・兵部卿に任命されたのは誰？","明治天皇","源義経","護良親王",3];
-    qa[2] = ["日曜日に鎌倉駅発，大塔宮行きのバスは何台あるでしょう（2022年）？","37","42","47",3];
+    qa[0] = ["鎌倉時代，「鎌倉の守り神」，「武士の守り神」として人々の精神の拠り所になっていた神社はどこでしょう？","鶴岡八幡宮","八雲神社","鎌倉宮",1];
+    qa[1] = ["神奈川県の天然記念物にも指定されている鶴岡八幡宮の大銀杏，台風により倒れてしまったのは何年のことでしょう？","2009年","2010年","2011年",2];
+    qa[2] = ["「吉野山　峰の白雪　ふみわけて　入りにし人の　跡ぞ恋しき」これは，静御前が誰を慕って舞った歌でしょう？","明治天皇","源義経","源頼朝",2];
 
     q_sel = 3; //選択肢の数
     var c = 0;//正解の数
@@ -108,13 +108,13 @@
     }
     function resultClick(){
         if (c == 0) {
-            setTimeout(function(){window.location.href = './KAMAKURAGU_0_result.html';}, 0);
+            setTimeout(function(){window.location.href = './HACHIMANGU_0_result.html';}, 0);
         }else if (c == 1){
-            setTimeout(function(){window.location.href = './KAMAKURAGU_1_result.html';}, 0);
+            setTimeout(function(){window.location.href = './HACHIMANGU_1_result.html';}, 0);
         }else if(c == 2){
-            setTimeout(function(){window.location.href = './KAMAKURAGU_2_result.html';}, 0);
+            setTimeout(function(){window.location.href = './HACHIMANGU_2_result.html';}, 0);
         }else{
-            setTimeout(function(){window.location.href = './KAMAKURAGU_3_result.html';}, 0);
+            setTimeout(function(){window.location.href = './HACHIMANGU_3_result.html';}, 0);
         }
     }
     
