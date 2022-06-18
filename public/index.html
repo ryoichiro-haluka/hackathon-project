@@ -64,7 +64,6 @@ function test2(position) {
     withLoginOnExternalBrowser: true, // Enable automatic login process
   }).then(() => {
     const idToken = liff.getDecodedIDToken();
-    idToken = idToken.json()
     s = idToken['name']
     document.getElementById("user_name").innerHTML = s;
   });
