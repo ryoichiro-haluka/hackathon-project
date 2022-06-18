@@ -1,0 +1,122 @@
+:root {
+    --main-bg-color: #740A00;
+    --main-white: #FFFFFC;
+    --main-black: #181B39;
+    --main-wood:linear-gradient(
+        90deg,
+        rgba(208, 147, 82, 0.6),
+        rgba(192, 134, 70, 0.6) 60%,
+        rgba(208, 147, 82, 0.6)
+      ),
+      repeating-radial-gradient(
+        ellipse at 60% 500%,
+        #c08646,
+        #c08646 0.2%,
+        #d09352 0.6%,
+        #d09352 1%
+      );
+}
+
+
+body {
+    background-color: var(--main-white);
+    background-image: url("./結果画面.png");
+    background-repeat: no-repeat;
+    background-size: 980px;
+}
+
+.quiz{
+    z-index:10;/*数字が大きいほど前面になる*/
+    display: inline-block;
+    color:rgba(115, 70, 22, 0.6);
+    width: 300px;
+    height: 100px;
+    /*position: relative;*/
+    border: inset 10px rgba(192, 134, 70, 0.6);
+    background: var(--main-wood);
+    font-size:50px;
+    margin:0 auto;
+    position: relative;
+    font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+    /*top: 50px;*/
+    left: 310px;
+    text-align:center;
+    line-height: 100px;
+
+    animation: fall 2s forwards;
+    animation-fill-mode:forwards;
+}
+
+@keyframes fall{
+    0%{
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    100%{
+        transform: translateY(100px) rotate(15deg);
+    }
+}
+
+.you{
+    font-size:80px;
+    font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+    color:black;
+    position: absolute;
+    top: 305px;
+    left: 300px;
+}
+
+.result{
+    display: inline-block;
+    width: 250px;
+    height: 100px;
+    /*position: relative;*/
+    border: inset 10px #22825D;
+    background-color: #dad8d8;
+    font-size:100px;
+    margin:0 auto;
+    position: relative;
+    font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+    color:black;
+    top: 250px;
+    left: 350px;
+    text-align:center;
+    line-height: 100px;
+
+    animation: emphasis 2s forwards;
+}
+
+.last{
+    font-size:50px;
+    font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+    position: absolute;
+    color:black;
+    top: 510px;
+    left: 500px;
+}
+
+.b_big{
+    display: block;/*marginが効かなかったらこれ*/
+    margin:0 auto;
+    position: relative;
+    top: 500px;
+    height: 150px;
+    width: 500px;
+    background: #FFFFFC;
+    border: 10px solid #134935;
+    font-size: 3em;
+    color: black;
+    border-radius: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/*画面によってcssを切り替える*/
+@media screen and (max-width:480px) {
+ 
+	/*　画面サイズが480px以下の場合ここの記述が適用される　*/
+    main {
+		width: 100%;
+	}
+ 
+}
