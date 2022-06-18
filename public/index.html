@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./get_position.css">
 <script>
 function test() {
     navigator.geolocation.getCurrentPosition(test2);
 }
 
 function test2(position) {
-    s = "";
+    s = "観光地にいますか？";
     var geo_text = "緯度:" + position.coords.latitude + "\n";
     geo_text += "経度:" + position.coords.longitude + "\n";
 
@@ -21,11 +22,11 @@ function test2(position) {
     if (la == 35.32 && lo == 139.56) {
         //正解
         l = "/Kamakura_Quiz.html";
-        setTimeout(function(){window.open('/Kamakura_Quiz.html');}, 2*1000);
+        setTimeout(function(){window.location.href = 'file:///Users/halukanumata/Desktop/6:18,19%E3%83%8F%E3%83%83%E3%82%AB%E3%82%BD%E3%83%B3/Kamakura_Quiz.html';}, 5*1000);
         s = "沼田家のクイズ";
     }else if(la == 35.59 && lo == 139.60){
         l = "/Kamakura_Quiz.html";
-        setTimeout(function(){window.open('/Kamakura_Quiz.html');}, 2*1000);
+        setTimeout(function(){window.location.href = 'file:///Users/halukanumata/Desktop/6:18,19%E3%83%8F%E3%83%83%E3%82%AB%E3%82%BD%E3%83%B3/Kamakura_Quiz.html';}, 5*1000);
         s = "三田家のクイズ";
     } else {
         l = "";
@@ -52,8 +53,9 @@ function test2(position) {
 </script>
 </head>
 <body>
-
-<button onclick="test()">クイズを探す</button>
-<div id="text_q"></div>
+    <!--<h1>鎌倉クイズ</h1>-->
+    
+    <button class="btn block" onclick="test()">位置情報取得</button>
+    <div class="locat result" id="text_q">クイズを探す</div>
 </body>
 </html>
