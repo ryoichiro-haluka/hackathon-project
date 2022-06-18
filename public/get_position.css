@@ -22,6 +22,10 @@ body {
     border-radius: 15px; /*角を丸くする*/
 }
 
+.btn:active{
+    background: rgb(148, 125, 0);
+}
+
 .block{
     display:block;
     width:300px;
@@ -50,46 +54,6 @@ body {
     position: relative;/*今の位置を基準に動く*/
     top: 500px;
 }
-/*
-.block{
-    
-    position:absolute;
-    top: 1000px;
-    left: 350px;
-}
-*/
-/*
-main {
-	width: 70%;
-	display: inline-block;
-	vertical-align: top;
-}
- 
-aside {
-	width: calc(30% - 26px);
-	display: inline-block;
-	margin-left: 20px;
-	box-sizing: border-box;
-	border: solid 1px;
-}
- 
-p {
-	line-height: 2;
-	width: 60%;
-	display: inline-block;
-	padding-right: 10px;
-	box-sizing: border-box;
-	vertical-align: top;
-	margin: 0;
-}
- 
-.imgarea {
-	height: 150px;
-	width: calc(40% - 6px);
-	background-color: #ccc;
-	display: inline-block;
-}
-*/
 
 /*画面によってcssを切り替える*/
 @media screen and (max-width:480px) {

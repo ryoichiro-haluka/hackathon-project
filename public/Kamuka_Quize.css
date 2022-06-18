@@ -1,0 +1,126 @@
+.main{
+    padding:30px;
+}
+
+table{
+    margin: 3px auto;
+}
+
+:root {
+    --main-bg-color: #740A00;
+    --main-white: #FFFFFC;
+    --main-black: #181B39;
+}
+
+#header .wrapper {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1000px;
+}
+
+body {
+    font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+    background-color: var(--main-bg-color);
+    margin:0;
+    padding:0;
+}
+
+#header{
+    border:0;
+    background-color: #dad8d8;
+    top:0;
+    margin:0;
+    width: 100%;
+    text-align:center;
+    border-bottom:ridge 30px #181B39;
+    font-size: 1.5em;
+    border-top:ridge 30px #181B39;
+}
+
+.mon{
+    margin:0 auto;
+    display: block;
+    font-size:2em;
+    width: 200px;
+    border: inset 10px #22825D;
+    background-color: #dad8d8;
+    text-align:center;
+}
+
+.sentack{
+    margin:0 auto;
+    display: block;
+    font-size:2em;
+    width: 200px;
+    border: inset 10px #22825D;
+    background-color: #dad8d8;
+    text-align:center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.textbox {
+    display: inline-block;
+    font-size:2em;
+    width: 700px;
+    height: 300px;
+    /*position: relative;*/
+    border: inset 10px #22825D;
+    background-color: #dad8d8;
+    padding-top: 0.3em;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+    padding-bottom: 0.3em;
+
+    text-align:center;
+    border-radius: 20px;
+    display: block;/*marginが効かなかったらこれ*/
+    margin:0 auto;
+}
+
+.b1{
+    display: block;/*marginが効かなかったらこれ*/
+    margin:0 auto;
+    position: relative;
+    height: 100px;
+    width: 500px;
+    background: #FFFFFC;
+    border: 10px solid #134935;
+    font-size: 2.3em;
+    border-radius: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.b1:active{
+    background: #b7b7b6;
+}
+
+.b_big{
+    display: block;/*marginが効かなかったらこれ*/
+    margin:0 auto;
+    position: relative;
+    height: 150px;
+    width: 500px;
+    background: #FFFFFC;
+    border: 10px solid #134935;
+    font-size: 3em;
+    color: red;
+    border-radius: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.b_big:active{
+    background: #b7b7b6;
+}
+
+/*画面によってcssを切り替える*/
+@media screen and (max-width:480px) {
+ 
+	/*　画面サイズが480px以下の場合ここの記述が適用される　*/
+    main {
+		width: 100%;
+	}
+ 
+}
