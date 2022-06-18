@@ -1,32 +1,37 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta charset="utf-8">
-<title>三択クイズ</title>
+    <meta charset="utf-8">
+    <title>沼田家のクイズ</title>
+    <link rel="stylesheet" href="./Quize.css">
 </head>
 <body>
-<h1>三択クイズ</h1>
-<hr>
-<h2>問題</h2>
-<div id="text_q"></div>
-<h2>選択</h2>
-<div id="text_s"></div>
+    <h1>沼田家のクイズ</h1>
+    <hr>
+    <h2>問題</h2>
+    <div id="text_q"></div>
+    <h2>選択</h2>
+
+    
+    <!--<p id="p1">ボタンを押して下さい</p>-->
+    <button id="p1" onclick='anser(2)'>ボタン</button>
+
+    <div id="quiz_1"></div>
+    <div id="quiz_2"></div>
+    <div id="quiz_3"></div>
+
+    <div id="text_s"></div>
+    <div id="text_s"></div>
+<!--
 <h2>解答</h2>
 <div id="text_a"></div>
-
+-->
 <script type="text/javascript">
     //問題と解答
     qa = new Array();
-    qa[0] = ["イルカを漢字で書くとどれ？","海豚","海牛","河豚",1];
-    qa[1] = ["クラゲを漢字で書くとどれ？","水浮","水母","水星",2];
-    qa[2] = ["カタツムリを漢字で書くとどれ？","禍牛","鍋牛","蝸牛",3];
-    qa[3] = ["バッタを漢字で書くとどれ？","飛蝗","飛蟻","飛脚",1];
-    qa[4] = ["タツノオトシゴを英語にするとどれ？","sea fish","sea horse","sea dragon",2];
-    qa[5] = ["マグロを英語にするとどれ？","funa","suna","tuna",3];
-    qa[6] = ["トンボを英語にするとどれ？","fly","dragonfly","butterfly",2];
-    qa[7] = ["ヒトデを英語にするとどれ？","starfish","starshell","starmine",1];
-    qa[8] = ["恒星の中で最も明るい星は？","デネブ","スピカ","シリウス",3];
-    qa[9] = ["惑星の中で最も重たいのはどれ？","太陽","木星","天王星",2];
+    qa[0] = ["何人構成でしょうか？","３","４","５",2];
+    qa[1] = ["兄の苦手な食べ物は？","ねぎ","パクチー","こんにゃく",3];
+    qa[2] = ["飼っている犬の犬種は？","トイプードル","秋田犬","チワプー",3];
     
     //初期設定
     //count = 0; //問題番号
@@ -46,31 +51,71 @@
         quiz();
     }
     
-    //問題表示
+    //問題表示_例
+    /*
     function quiz() {
         //問題
         document.getElementById("text_q").innerHTML = (count + 1) + "問目：" + qa[count][0];
         //選択肢
         s = "";
         for (n=1;n<=q_sel;n++) {
-            s += "【<a href='javascript:anser(" + n + ")'>" + n + "：" + qa[count][n] + "</a>】";
+            s += "【<a href='javascript:anser(" + n + ")'>" + "選択肢" + n + ": " + qa[count][n] + "</a>】";
         }
         document.getElementById("text_s").innerHTML = s;
+    }
+    */
+    
+    //問題表示
+    function quiz() {
+        //問題
+        document.getElementById("text_q").innerHTML = (count + 1) + "問目：" + qa[count][0];
+        //選択肢
+        //選択肢の表示_例
+        /*
+        for (n=1;n<=q_sel;n++) {
+            s1 = "<a href='javascript:anser(" + n + ")'>" + "選択肢" + n + ": " + qa[count][n] + "</a>";
+        }
+        */
+
+        const p1 = document.getElementById("p1");
+        p1.innerHTML = "選択肢2: " + qa[count][1];
+        p1.onclick = 'javascript:anser('+2+')';
+        
+        s1 = "<a href='javascript:anser(" + n + ")'>" + "選択肢" + n + ": " + qa[count][n] + "</a>";
+
+        s1 = "<button onclick='loction.href='javascript:anser(" + 2 + ")''>" + "選択肢" + 2 + ": " + qa[count][1] + "</button>";
+        s2 = "<button class='btn block' onclick='loction.href='javascript:anser(" + 2 + ")''>" + "選択肢" + 2 + ": " + qa[count][2] + "</button>";
+        s3 = "<button class='btn block' onclick='loction.href='javascript:anser(" + 3 + ")''>" + "選択肢" + 3 + ": " + qa[count][3] + "</button>";
+
+
+
+        document.getElementById("quize_n1").innerHTML = s_n1;
+        document.getElementById("quize_q1").innerHTML = s_q1;
+
+        document.getElementById("quize_1").innerHTML = s1;
+        document.getElementById("quize_2").innerHTML = s2;
+        document.getElementById("quize_3").innerHTML = s3;
+        
     }
     
     //解答表示
     function anser(num) {
         var s;
+        var c = 0;
+        
         s = (count + 1) + "問目：";
         //答え合わせ
         if (num == qa[count][q_sel + 1]) {
             //正解
             ansers[count] = "○";
+            c += 1
         } else {
             ansers[count] = "×";
         }
+        /*
         s += ansers[count] + qa[count][num];
         document.getElementById("text_a").innerHTML = s;
+        */
         //次の問題を表示
         count++;
         if (count < qa.length) {
@@ -93,7 +138,15 @@
             s += "</tr>";
             s += "</table>";
 
-            j = "【<a href='/Kamakura_result.html'>" + "成績開示" + "</a>】";
+            if (c == 0) {
+                j = "【<a href='file:///Users/halukanumata/Desktop/6:18,19%E3%83%8F%E3%83%83%E3%82%AB%E3%82%BD%E3%83%B3/Kamakura_result.html'>" + "あなたの位は" + "</a>】";
+            }else if (c == 1){
+                j = "【<a href='file:///Users/halukanumata/Desktop/6:18,19%E3%83%8F%E3%83%83%E3%82%AB%E3%82%BD%E3%83%B3/Kamakura_result.html'>" + "あなたの位は" + "</a>】";
+            }else if (c == 2){
+                j = "【<a href='file:///Users/halukanumata/Desktop/6:18,19%E3%83%8F%E3%83%83%E3%82%AB%E3%82%BD%E3%83%B3/Kamakura_result.html'>" + "あなたの位は" + "</a>】";
+            }else{
+                j = "【<a href='file:///Users/halukanumata/Desktop/6:18,19%E3%83%8F%E3%83%83%E3%82%AB%E3%82%BD%E3%83%B3/Kamakura_result.html'>" + "あなたの位は" + "</a>】";
+            }
 
             document.getElementById("text_q").innerHTML = s;
             document.getElementById("text_s").innerHTML = j;
