@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>杉本寺のクイズ</title>
+    <link rel="stylesheet" href="./Kamuka_Quize.css">
+</head>
+<body id="body">
+    <header id="header">
+        <h1 class="title">杉本寺のクイズ</h1>
+    </header>
+    <h2 id="mon" class="mon">問題</h2>
+    <div id="text_q" class="textbox"></div>
+    <h2 id="sentaku" class="sentack" >選択</h2>
+    
+    <button class="b1" id="p1" onclick='anser(1)'>ボタン</button><br>
+    <button class="b1" id="p2" onclick='anser(2)'>ボタン</button><br>
+    <button class="b1" id="p3" onclick='anser(3)'>ボタン</button><br>
+    <button class="b_big" id="p_ans" onclick='resultClick()'><b>あなたの位は</b></button>
+
+<script type="text/javascript">
+    //問題と解答
+    qa = new Array();
+    qa[0] = ["鎌倉にある最古の寺はどこでしょう．","建長寺","浄明寺","杉本寺",3];
+    qa[1] = ["杉本寺で大晦日に行われる，開運祝福，家内安全，身体健全，厄除け，諸願成就当願い事を記した護摩木を焚き願いが叶えられるようお祈りを行時の名前は何でしょう．","新年大護摩供","四万六千日大祭","花祭り",1];
+    qa[2] = ["杉本寺で春に咲く花として正しいものはどれでしょう．","ホタルブクロ","椿","水仙",2];
+
+    q_sel = 3; //選択肢の数
+    var c = 0;//正解の数
+
+    setReady();
+
+    //初期設定
+    function setReady() {
+        count = 0; //問題番号
+        ansers = new Array(); //解答記録
+        
+        //最初の問題
+        quiz();
+    }
+    
+    //問題表示
+    function quiz() {
+        //問題
+        document.getElementById("text_q").innerHTML = qa[count][0];
+
+        const p1 = document.getElementById("p1");
+        p1.innerHTML = qa[count][1];// ボタンの名前を変える
+        const p2 = document.getElementById("p2");
+        p2.innerHTML = qa[count][2];
+        const p3 = document.getElementById("p3");
+        p3.innerHTML = qa[count][3];
+
+        document.getElementById("p_ans").style.display ="none";//非表示
+    }
+    
+    //解答表示
+    function anser(num) {
+        var s;
+        
+        s = (count + 1) + "問目：";
+        //答え合わせ
+        if (num == qa[count][q_sel + 1]) {
+            //正解
+            ansers[count] = "○";
+            c += 1
+        } else {
+            ansers[count] = "×";
+        }
+        //次の問題を表示
+        count++;
+        if (count < qa.length) {
+            quiz();
+        } else {
+            
+            //終了
+            s = "<table border='2'><caption>成績発表</caption>";
+            //1行目
+            s += "<tr><th>問題</th>";
+            for (n=0;n<qa.length;n++) {
+                s += "<th>" + (n+1) + "</th>";
+            }
+            s += "</tr>";
+            //2行目
+            s += "<tr><th>成績</th>";
+            for (n=0;n<qa.length;n++) {
+                s += "<td>" + ansers[n] + "</td>";
+            }
+            s += "</tr>";
+            s += "</table>";
+            const mon = document.getElementById("mon");
+            mon.textContent = "正解発表";
+            const sentack = document.getElementById("sentaku");
+            sentack.remove();
+
+            const ele1 = document.getElementById('p1'); 
+            ele1.remove(); //要素を消す，選択肢のボタンを消す
+            const ele2 = document.getElementById('p2'); 
+            ele2.remove();
+            const ele3 = document.getElementById('p3'); 
+            ele3.remove();
+
+            document.getElementById("p_ans").style.display ="block";//表示
+
+            document.getElementById("text_q").innerHTML = s;
+            document.getElementById("text_s").innerHTML = "";
+        }
+    }
+    function resultClick(){
+        if (c == 0) {
+            setTimeout(function(){window.location.href = './SUGIMOTODERA_0_result.html';}, 0);
+        }else if (c == 1){
+            setTimeout(function(){window.location.href = './SUGIMOTODERA_1_result.html';}, 0);
+        }else if(c == 2){
+            setTimeout(function(){window.location.href = './SUGIMOTODERA_2_result.html';}, 0);
+        }else{
+            setTimeout(function(){window.location.href = './SUGIMOTODERA_3_result.html';}, 0);
+        }
+    }
+    
+</script>
+</body>
+</html>
