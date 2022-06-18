@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./get_position.css">
 <script>
 function test() {
     navigator.geolocation.getCurrentPosition(test2);
 }
 
 function test2(position) {
-    s = "";
+    s = "観光地にいますか？";
     var geo_text = "緯度:" + position.coords.latitude + "\n";
     geo_text += "経度:" + position.coords.longitude + "\n";
 
@@ -21,11 +22,11 @@ function test2(position) {
     if (la == 35.32 && lo == 139.56) {
         //正解
         l = "/Kamakura_Quiz.html";
-        setTimeout(function(){window.open('/Kamakura_Quiz.html');}, 2*1000);
+        setTimeout(function(){window.open('/KAMAKURAGU_Quiz.html');}, 5*1000);
         s = "沼田家のクイズ";
     }else if(la == 35.59 && lo == 139.60){
         l = "/Kamakura_Quiz.html";
-        setTimeout(function(){window.open('/Kamakura_Quiz.html');}, 2*1000);
+        setTimeout(function(){window.open('/KAMAKURAGU_Quiz.html');}, 5*1000);
         s = "三田家のクイズ";
     } else {
         l = "";
@@ -33,46 +34,34 @@ function test2(position) {
     }
     document.getElementById("text_q").innerHTML = s;
 
-
-    /*
-    geo_text += "高度:" + position.coords.altitude + "\n";
-    geo_text += "位置精度:" + position.coords.accuracy + "\n";
-    geo_text += "高度精度:" + position.coords.altitudeAccuracy  + "\n";
-    geo_text += "移動方向:" + position.coords.heading + "\n";
-    geo_text += "速度:" + position.coords.speed + "\n";
-
-    var date = new Date(position.timestamp);
-
-    geo_text += "取得時刻:" + date.toLocaleString() + "\n";
-
-    alert(geo_text);
-    */
-
 }
 </script>
 </head>
 <body>
+    
+    <button class="btn block" onclick="test()">位置情報取得</button>
+    <div class="locat result" id="text_q">クイズを探す</div>
 
-<button onclick="test()">クイズを探す</button>
-<div id="text_q"></div>
-
-<div id="user_name"></div><br>
-前回の沼田家クイズの成績：<div id="probN"></div>問正解<br>
-前回の三田家クイズの成績：<div id="probM"></div>問正解
+    <div id="user_name"></div><br>
+    前回の沼田家クイズの成績：<div id="probN"></div>問正解<br>
+    前回の三田家クイズの成績：<div id="probM"></div>問正解<br>
+    <div class="button-area">
+        <!-- spanタグにボタンの機能を持たせる -->
+        <span id="button_class">あなたの称号は？</span>
+    </div>
 
 <!-- liffのjs -->
 <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 
 <!-- firebase databaseのスクリプト -->
 <script type="module">
-  
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
   import {getDatabase, ref, set, child, update, remove, get}
   from "https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
-
+  // Initialize Firebase
     liff.init({
     liffId: '1657230531-EW5Dv37V', // Use own liffId
     withLoginOnExternalBrowser: true, // Enable automatic login process
@@ -90,34 +79,49 @@ function test2(position) {
     messagingSenderId: "630966647062",
     appId: "1:630966647062:web:f3ab6cf45bf8236530f837"
   };
-  // Initialize Firebase
+
   const app = initializeApp(firebaseConfig);
 
   const db = getDatabase();
-  // var ID = document.getElementById("user_id");
-  // var name = document.getElementById("user_name");
-  // var prob = document.getElementById("text_q");
+
   const dbRef = ref(getDatabase());
   get(child(dbRef, `users/${ID}`)).then((snapshot) => {
   if (snapshot.exists()) {
     document.getElementById("probN").innerHTML = snapshot.val()['probN'];
     document.getElementById("probM").innerHTML = snapshot.val()['probM'];
   } else {
-    console.log("No data available");
+    set(ref(db, 'users/' + ID), {
+    username: name,
+    probM:0,
+    probN:0,
+    class:'商人'
+  });
   }
   }).catch((error) => {
   console.error(error);
   });
-  
-  set(ref(db, 'users/' + ID), {
-    username: name,
-    probM:'0',
-    probN:'0',
-  });
+
+  function sendClass() {
+    const db = getDatabase();
+    const dbRef = ref(getDatabase());
+    get(child(dbRef, `users/${ID}`)).then((snapshot) => {
+    var class_name = snapshot.val()['class'];
+    liff
+    .sendMessages([
+      {
+        type: "text",
+        text: class_name,
+      },
+    ])
+    .then(function () {
+      window.alert('称号を送りました');
+    });
+  })
+  }
+  const btn = document.getElementById('button_class')
+  btn.addEventListener('click', sendClass)
 
   });
-  // Your web app's Firebase configuratio
-
 </script>
 
 </body>
