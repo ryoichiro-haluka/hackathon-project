@@ -12,10 +12,6 @@
         "destination": "/KAMAKURAGU_Quiz.html"
       },
       {
-        "source":"/KAMAKURAGU_Quiz.html",
-        "destination": "/Kamakura_result.html"
-      },
-      {
         "source": "**",
         "destination": "/index.html"
       }

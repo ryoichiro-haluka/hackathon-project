@@ -23,11 +23,11 @@ function test2(position) {
         //正解
         l = "/KAMAKURAGU_Quiz.html";
         setTimeout(function(){window.open('/KAMAKURAGU_Quiz.html');}, 5*1000);
-        s = "沼田家のクイズ";
+        s = "鎌倉宮のクイズ";
     }else if(la == 35.59 && lo == 139.60){
-        l = "/KAMAKURAGU_Quiz.html";
-        setTimeout(function(){window.open('/KAMAKURAGU_Quiz.html');}, 5*1000);
-        s = "三田家のクイズ";
+        l = "/HACHIMANGU_Quiz.html";
+        setTimeout(function(){window.open('/HACHIMANGU_Quiz.html');}, 5*1000);
+        s = "八幡宮のクイズ";
     } else {
         l = "";
         s = "クイズがありません";
@@ -41,10 +41,14 @@ function test2(position) {
     
     <button class="btn block" onclick="test()">位置情報取得</button>
     <div class="locat result" id="text_q">クイズを探す</div>
-
-    <div id="user_name"></div><br>
-    前回の沼田家クイズの成績：<div id="probN"></div>問正解<br>
-    前回の三田家クイズの成績：<div id="probM"></div>問正解<br>
+    
+    <div class="p_locat_name">
+      <div class="locat_name" id="user_name"></div>
+    </div>
+    <div class="p_prob">
+      <div class="prob_ans" id="probN"></div>
+      <div class="prob_ans" id="probM"></div>
+    </div>
     <div class="button-area">
         <!-- spanタグにボタンの機能を持たせる -->
         <span id="button_class">あなたの称号は？</span>
@@ -69,7 +73,7 @@ function test2(position) {
     const idToken = liff.getDecodedIDToken();
     const name = idToken['name'];
     const ID = idToken['sub'];
-    document.getElementById("user_name").innerHTML = name;
+    document.getElementById("user_name").innerHTML = "&emsp;&emsp;ようこそ!<br>"+name+" さん!";
 
     const firebaseConfig = {
     apiKey: "AIzaSyDrmYDLon18d7MqCU5yYAUXI5A_yTPl3js",
@@ -87,8 +91,8 @@ function test2(position) {
   const dbRef = ref(getDatabase());
   get(child(dbRef, `users/${ID}`)).then((snapshot) => {
   if (snapshot.exists()) {
-    document.getElementById("probN").innerHTML = snapshot.val()['probN'];
-    document.getElementById("probM").innerHTML = snapshot.val()['probM'];
+    document.getElementById("probN").innerHTML = '前回の鎌倉宮クイズの成績：'+snapshot.val()['probN'] + '問正解';
+    document.getElementById("probM").innerHTML = '前回の八幡宮クイズの成績：'+snapshot.val()['probM'] + '問正解';
   } else {
     set(ref(db, 'users/' + ID), {
     username: name,

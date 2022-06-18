@@ -47,6 +47,34 @@ body {
     border-radius: 20px; /*角を丸くする*/
 }
 
+/*ユーザー名表示*/
+.locat_name{
+    color:#740A00;
+    font-size:4em;
+    font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+    /* border-radius: 20px; 角を丸くする */
+    padding-top:750px;
+}
+.p_locat_name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*正解数表示*/
+.p_prob{
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+}
+.prob_ans{
+    color:#740A00;
+    font-size:4em;
+    font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+    /* border-radius: 20px; 角を丸くする */
+}
+
+
 .result{
     display:block;
     width:500px;
