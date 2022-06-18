@@ -1,0 +1,102 @@
+:root {
+    --main-bg-color: #740A00;
+    --main-white: #FFFFFC;
+    --main-black: #181B39;
+}
+
+body {
+    background-color: var(--main-white);
+    background-image: url("./タイトル画像.png");
+    background-repeat: no-repeat;
+    background-size: 980px;
+}
+
+.btn{
+	background:gold;
+    padding:0.7em 0.7em;
+    border:var(--main-bg-color) 4px solid;
+    text-decoration:none;
+    color:black;
+    font-size:2em;
+    font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+    border-radius: 15px; /*角を丸くする*/
+}
+
+.block{
+    display:block;
+    width:300px;
+    margin:0 auto;
+    position: relative;/*今の位置を基準に動く*/
+    top: 800px;
+
+}
+
+.locat{
+    background:var(--main-white);
+    /*padding:30px;*/
+    text-align:center;
+    border:var(--main-bg-color) 7px solid;
+    text-decoration:none;
+    color:#740A00;
+    font-size:4em;
+    font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+    border-radius: 20px; /*角を丸くする*/
+}
+
+.result{
+    display:block;
+    width:500px;
+    margin:0 auto;
+    position: relative;/*今の位置を基準に動く*/
+    top: 500px;
+}
+/*
+.block{
+    
+    position:absolute;
+    top: 1000px;
+    left: 350px;
+}
+*/
+/*
+main {
+	width: 70%;
+	display: inline-block;
+	vertical-align: top;
+}
+ 
+aside {
+	width: calc(30% - 26px);
+	display: inline-block;
+	margin-left: 20px;
+	box-sizing: border-box;
+	border: solid 1px;
+}
+ 
+p {
+	line-height: 2;
+	width: 60%;
+	display: inline-block;
+	padding-right: 10px;
+	box-sizing: border-box;
+	vertical-align: top;
+	margin: 0;
+}
+ 
+.imgarea {
+	height: 150px;
+	width: calc(40% - 6px);
+	background-color: #ccc;
+	display: inline-block;
+}
+*/
+
+/*画面によってcssを切り替える*/
+@media screen and (max-width:480px) {
+ 
+	/*　画面サイズが480px以下の場合ここの記述が適用される　*/
+    main {
+		width: 100%;
+	}
+ 
+}

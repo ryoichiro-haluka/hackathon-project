@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./get_position.css">
 <script>
 function test() {
     navigator.geolocation.getCurrentPosition(test2);
 }
 
 function test2(position) {
-    s = "";
+    s = "観光地にいますか？";
     var geo_text = "緯度:" + position.coords.latitude + "\n";
     geo_text += "経度:" + position.coords.longitude + "\n";
 
@@ -52,8 +53,9 @@ function test2(position) {
 </script>
 </head>
 <body>
-
-<button onclick="test()">クイズを探す</button>
-<div id="text_q"></div>
+    <!--<h1>鎌倉クイズ</h1>-->
+    
+    <button class="btn block" onclick="test()">位置情報取得</button>
+    <div class="locat result" id="text_q">クイズを探す</div>
 </body>
 </html>

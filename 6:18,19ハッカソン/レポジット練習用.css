@@ -1,0 +1,40 @@
+main {
+	width: 70%;
+	display: inline-block;
+	vertical-align: top;
+}
+ 
+aside {
+	width: calc(30% - 26px);
+	display: inline-block;
+	margin-left: 20px;
+	box-sizing: border-box;
+	border: solid 1px;
+}
+ 
+p {
+	line-height: 2;
+	width: 60%;
+	display: inline-block;
+	padding-right: 10px;
+	box-sizing: border-box;
+	vertical-align: top;
+	margin: 0;
+}
+ 
+.imgarea {
+	height: 150px;
+	width: calc(40% - 6px);
+	background-color: #ccc;
+	display: inline-block;
+}
+
+/*画面によってcssを切り替える*/
+@media screen and (max-width:480px) {
+ 
+	/*　画面サイズが480px以下の場合ここの記述が適用される　*/
+    main {
+		width: 100%;
+	}
+ 
+}
