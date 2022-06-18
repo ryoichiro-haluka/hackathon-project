@@ -55,5 +55,20 @@ function test2(position) {
 
 <button onclick="test()">クイズを探す</button>
 <div id="text_q"></div>
+<div id="user_name"></div>
+
+<script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+<script>
+  liff.init({
+    liffId: '1657230531-EW5Dv37V', // Use own liffId
+    withLoginOnExternalBrowser: true, // Enable automatic login process
+  }).then(() => {
+    const idToken = liff.getDecodedIDToken();
+    idToken = idToken.json()
+    s = idToken['name']
+    document.getElementById("user_name").innerHTML = s;
+  });
+</script>
+
 </body>
 </html>
