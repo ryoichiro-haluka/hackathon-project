@@ -22,11 +22,11 @@ function test2(position) {
     if (la == 35.32 && lo == 139.56) {
         //正解
         l = "/KAMAKURAGU_Quiz.html";
-        setTimeout(function(){window.open('/KAMAKURAGU_Quiz.html');}, 5*1000);
+        setTimeout(function(){window.open('/KAMAKURAGU_Quiz.html');}, 2*1000);
         s = "鎌倉宮のクイズ";
     }else if(la == 35.59 && lo == 139.60){
         l = "/HACHIMANGU_Quiz.html";
-        setTimeout(function(){window.open('/HACHIMANGU_Quiz.html');}, 5*1000);
+        setTimeout(function(){window.open('/HACHIMANGU_Quiz.html');}, 2*1000);
         s = "八幡宮のクイズ";
     } else {
         l = "";
@@ -96,8 +96,8 @@ function test2(position) {
   } else {
     set(ref(db, 'users/' + ID), {
     username: name,
-    probM:0,
     probN:0,
+    probM:0,
     class:'商人'
   });
   }

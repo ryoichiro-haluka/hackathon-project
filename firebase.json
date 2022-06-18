@@ -12,6 +12,10 @@
         "destination": "/KAMAKURAGU_Quiz.html"
       },
       {
+        "source":"/index.html",
+        "destination": "/HACHIMANGU_Quiz.html"
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }
