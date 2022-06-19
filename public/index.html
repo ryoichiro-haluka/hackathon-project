@@ -21,14 +21,26 @@ function test2(position) {
     
     if (la == 35.32 && lo == 139.56) {
         //正解
-        l = "/Kamakura_Quiz.html";
-        setTimeout(function(){window.location.href = 'file:///Users/halukanumata/Desktop/6:18,19%E3%83%8F%E3%83%83%E3%82%AB%E3%82%BD%E3%83%B3/Kamakura_Quiz.html';}, 5*1000);
-        s = "沼田家のクイズ";
-    }else if(la == 35.59 && lo == 139.60){
-        l = "/Kamakura_Quiz.html";
-        setTimeout(function(){window.location.href = 'file:///Users/halukanumata/Desktop/6:18,19%E3%83%8F%E3%83%83%E3%82%AB%E3%82%BD%E3%83%B3/Kamakura_Quiz.html';}, 5*1000);
-        s = "三田家のクイズ";
-    } else {
+        l = "/KAMAKURAGU_Quiz.html";
+        setTimeout(function(){window.open('/KAMAKURAGU_Quiz.html');}, 2*1000);
+        s = "鎌倉宮のクイズ";
+    }else if(la == 35.32 && lo == 139.55){
+        l = "/HACHIMANGU_Quiz.html";
+        setTimeout(function(){window.open('/HACHIMANGU_Quiz.html');}, 2*1000);
+        s = "八幡宮のクイズ";
+    }else if(la == 35.31 && lo == 139.53){
+        l = "/DAIBUTU_Quiz.html";
+        setTimeout(function(){window.open('/DAIBUTU_Quiz.html');}, 2*1000);
+        s = "大仏のクイズ";
+    }else if(la == 35.32 && lo == 139.56){
+        l = "/SUGIMOTODERA_Quiz.html";
+        setTimeout(function(){window.open('/SUGIMOTODERA_Quiz.html');}, 2*1000);
+        s = "杉本寺のクイズ";
+    }else if(la == 35.31 && lo == 139.55){
+        l = "/KAMAKURAEKI_Quiz.html";
+        setTimeout(function(){window.open('/KAMAKURAEKI_Quiz.html');}, 2*1000);
+        s = "鎌倉駅のクイズ";
+    }else {
         l = "";
         s = "クイズがありません";
     }
@@ -41,5 +53,102 @@ function test2(position) {
     
     <button class="btn block" onclick="test()">位置情報取得</button>
     <div class="locat result" id="text_q">クイズを探す</div>
+<<<<<<< HEAD
+    
+    <div class="p_locat_name">
+      <div class="locat_name" id="user_name"></div>
+    </div>
+    <div class="p_prob">
+      <div class="prob_ans" id="probN"></div>
+      <div class="prob_ans" id="probM"></div>
+      <div class="prob_ans" id="probD"></div>
+      <div class="prob_ans" id="probS"></div>
+      <div class="prob_ans" id="probKS"></div>
+    </div>
+    <div class="button_area">
+        <!-- spanタグにボタンの機能を持たせる -->
+          <span class="btn_class block_class" id="button_class">あなたの称号は？</span>
+    </div>
+
+<!-- liffのjs -->
+<script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+
+<!-- firebase databaseのスクリプト -->
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
+  import {getDatabase, ref, set, child, update, remove, get}
+  from "https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+  // Initialize Firebase
+    liff.init({
+    liffId: '1657232078-qR834Eea', // Use own liffId
+    withLoginOnExternalBrowser: true, // Enable automatic login process
+  }).then(() => {
+    const idToken = liff.getDecodedIDToken();
+    const name = idToken['name'];
+    const ID = idToken['sub'];
+    document.getElementById("user_name").innerHTML = "&emsp;&emsp;ようこそ!<br>"+name+" さん!";
+
+    const firebaseConfig = {
+    apiKey: "AIzaSyDrmYDLon18d7MqCU5yYAUXI5A_yTPl3js",
+    authDomain: "locationquiz-6ea9f.firebaseapp.com",
+    projectId: "locationquiz-6ea9f",
+    storageBucket: "locationquiz-6ea9f.appspot.com",
+    messagingSenderId: "630966647062",
+    appId: "1:630966647062:web:f3ab6cf45bf8236530f837"
+  };
+
+  const app = initializeApp(firebaseConfig);
+
+  const db = getDatabase();
+
+  const dbRef = ref(getDatabase());
+  get(child(dbRef, `users/${ID}`)).then((snapshot) => {
+  if (snapshot.exists()) {
+    document.getElementById("probN").innerHTML = '前回の鎌倉宮クイズの成績：'+snapshot.val()['probN'] + '問正解';
+    document.getElementById("probM").innerHTML = '前回の八幡宮クイズの成績：'+snapshot.val()['probM'] + '問正解';
+    document.getElementById("probD").innerHTML = '前回の大仏クイズの成績　：'+snapshot.val()['probD'] + '問正解';
+    document.getElementById("probS").innerHTML = '前回の杉本寺クイズの成績：'+snapshot.val()['probS'] + '問正解';
+    document.getElementById("probKS").innerHTML = '前回の鎌倉駅クイズの成績：'+snapshot.val()['probKS'] + '問正解';
+  } else {
+    set(ref(db, 'users/' + ID), {
+    username: name,
+    probN:0,
+    probM:0,
+    probD:0,
+    probS:0,
+    probKS:0,
+    class:'善児'
+  });
+  }
+  }).catch((error) => {
+  console.error(error);
+  });
+
+  function sendClass() {
+    const db = getDatabase();
+    const dbRef = ref(getDatabase());
+    get(child(dbRef, `users/${ID}`)).then((snapshot) => {
+    var class_name = snapshot.val()['class'];
+    liff
+    .sendMessages([
+      {
+        type: "text",
+        text: class_name,
+      },
+    ])
+    .then(function () {
+      window.alert('称号を送りました');
+    });
+  })
+  }
+  const btn = document.getElementById('button_class')
+  btn.addEventListener('click', sendClass)
+  });
+</script>
+=======
+>>>>>>> f0190933363a73ec8448128f37908ae7c3b1fed2
 </body>
 </html>
