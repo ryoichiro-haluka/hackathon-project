@@ -46,10 +46,10 @@ firebase init
 # Author
 
 * 三田稜一朗
-* 上智大学理工学研究科
+* 上智大学理工学研究科理工学専攻情報学領域
 * r-mita@yairilab.net<br><br>
 * 沼田遥
-* 上智大学理工学研究科
+* 上智大学理工学研究科理工学専攻情報学領域
 * numata@yairilab.net
 
 # License
