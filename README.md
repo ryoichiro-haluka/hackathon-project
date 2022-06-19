@@ -29,8 +29,7 @@ L
 
 * 三田稜一朗
 * 上智大学理工学研究科
-* r-mita@yairilab.net
-* 
+* r-mita@yairilab.net<br><br>
 * 沼田遥
 * 上智大学理工学研究科
 * numata@yairilab.net
