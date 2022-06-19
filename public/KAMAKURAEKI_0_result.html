@@ -16,11 +16,43 @@
     <a class="result">商人</a><br>
     <a class="last">だ！！！</a><br>
 
-    <button class="b_big" id="p_ans" onclick='resultClick()'><b>もう一度受け直す</b></button>
+    <button class="b_big" id="p_ans"><b>もう一度受け直す</b></button>
 </body>
-<script type="text/javascript">
+<script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
+    import {getDatabase, ref, set, child, update, remove, get}
+    from "https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js";
+    liff.init({
+    liffId: '1657231990-Glk2yNd9', // Use own liffId
+    withLoginOnExternalBrowser: true, // Enable automatic login process
+  }).then(() => {
+    const idToken = liff.getDecodedIDToken();
+    const name = idToken['name'];
+    const ID = idToken['sub'];
+
+    const firebaseConfig = {
+    apiKey: "AIzaSyDrmYDLon18d7MqCU5yYAUXI5A_yTPl3js",
+    authDomain: "locationquiz-6ea9f.firebaseapp.com",
+    projectId: "locationquiz-6ea9f",
+    storageBucket: "locationquiz-6ea9f.appspot.com",
+    messagingSenderId: "630966647062",
+    appId: "1:630966647062:web:f3ab6cf45bf8236530f837"
+  };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase();
+
+    update(ref(db, 'users/' + ID), {
+    username: name,
+    prosKS:0,
+    class:'商人'
+  });
+  })
     function resultClick(){
         setTimeout(function(){window.location.href = './KAMAKURAEKI_Quiz.html';}, 0);
     }
+    const btn = document.getElementById('p_ans')
+    btn.addEventListener('click', resultClick)
 </script>
 </html>
