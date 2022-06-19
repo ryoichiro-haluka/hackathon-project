@@ -7,21 +7,36 @@
 "hoge"の魅力が直感的に伝えわるデモ動画や図解を載せる
 
 # Features
-LINE上でクイズができる<br>
-位置情報を利用することで、鎌倉にいる時だけ問題が解ける<br>
-正解数に応じて称号が与えられる<br>
-出題された問題ごとに前回の正答数を保存
+*LINE上でクイズができる<br>
+*位置情報を利用することで、鎌倉にいる時だけ問題が解ける<br>
+*正解数に応じて称号が与えられる<br>
+*出題された問題ごとに前回の正答数を保存
 
 
 # Requirement
 
-* huga 3.5.2
-* hogehuga 1.0.2
+* LIFF 2.20.2
+* Firebase SDK 9.8.3
+* VSCode 1.68
+* HTML
+* CSS
+* JavaScript
 
 # Installation
-
-
-
+Firebase SDKをインストールする手順
+```bash
+npm install -g firebase-tools
+```
+```bash
+firebase login
+```
+```bash
+firebase init
+```
+デプロイしたい時は
+```bash
+firebase init
+```
 # Note
 
 一般公開の予定なし<br>
