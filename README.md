@@ -6,7 +6,7 @@
 <img width="659" alt="スクリーンショット 2022-06-19 20 22 47" src="https://user-images.githubusercontent.com/64306415/174478501-a6ca3a1a-2584-47ea-a363-97107e25270f.png">
 
 # DEMO
-鶴岡八幡宮でのデモ動画
+鶴岡八幡宮でのデモ動画<br>
 https://user-images.githubusercontent.com/64306415/174478640-376956bb-949e-4c73-8b61-23fb72853118.mp4
 
 
