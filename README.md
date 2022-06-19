@@ -2,7 +2,7 @@
 
 鎌倉に関連したクイズが出題されるWebアプリケーション
 
-# DEMO
+# Configuration
 <img width="659" alt="スクリーンショット 2022-06-19 20 22 47" src="https://user-images.githubusercontent.com/64306415/174478501-a6ca3a1a-2584-47ea-a363-97107e25270f.png">
 
 # Features
