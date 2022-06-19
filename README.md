@@ -25,11 +25,13 @@ LINEをインストールするだけ！
 
 # Author
 
-作成情報を列挙する
-
 * 三田稜一朗
 * 上智大学理工学研究科
 * r-mita@yairilab.net
+* 
+* 沼田遥
+* 上智大学理工学研究科
+* numata@yairilab.net
 
 # License
 ライセンスを明示する
