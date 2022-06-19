@@ -9,6 +9,7 @@ body {
     background-image: url("./タイトル画像.png");
     background-repeat: no-repeat;
     background-size: 980px;
+    height:1600px;
 }
 
 .btn{
