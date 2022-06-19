@@ -8,16 +8,18 @@
 
 # Features
 
-Geolocation APIを使用して、鎌倉にいる時だけ問題が解ける
+Geolocation APIを使用して、鎌倉にいる時だけ問題が解ける. 
+LINEをインストールすれば誰でもできる. 
+正解数に応じて称号が与えられる. 
 
 
 # Requirement
 
-LINE上で動かすことができる
+L
 
 # Installation
 
-LINEをインストールするだけ！
+
 
 # Note
 
