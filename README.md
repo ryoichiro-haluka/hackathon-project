@@ -55,9 +55,3 @@ firebase init
 * 沼田遥
 * 上智大学理工学研究科理工学専攻情報学領域
 * numata@yairilab.net
-
-# License
-ライセンスを明示する
-
-"hoge" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
-
