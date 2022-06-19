@@ -108,7 +108,7 @@ function test2(position) {
   if (snapshot.exists()) {
     document.getElementById("probN").innerHTML = '前回の鎌倉宮クイズの成績：'+snapshot.val()['probN'] + '問正解';
     document.getElementById("probM").innerHTML = '前回の八幡宮クイズの成績：'+snapshot.val()['probM'] + '問正解';
-    document.getElementById("probD").innerHTML = '前回の大仏クイズの成績：'+snapshot.val()['probD'] + '問正解';
+    document.getElementById("probD").innerHTML = '前回の大仏クイズの成績　：'+snapshot.val()['probD'] + '問正解';
     document.getElementById("probS").innerHTML = '前回の杉本寺クイズの成績：'+snapshot.val()['probS'] + '問正解';
     document.getElementById("probKS").innerHTML = '前回の鎌倉駅クイズの成績：'+snapshot.val()['probKS'] + '問正解';
   } else {
@@ -145,9 +145,7 @@ function test2(position) {
   }
   const btn = document.getElementById('button_class')
   btn.addEventListener('click', sendClass)
-
   });
 </script>
-
 </body>
 </html>
