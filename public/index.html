@@ -24,11 +24,23 @@ function test2(position) {
         l = "/KAMAKURAGU_Quiz.html";
         setTimeout(function(){window.open('/KAMAKURAGU_Quiz.html');}, 2*1000);
         s = "鎌倉宮のクイズ";
-    }else if(la == 35.59 && lo == 139.60){
+    }else if(la == 35.32 && lo == 139.55){
         l = "/HACHIMANGU_Quiz.html";
         setTimeout(function(){window.open('/HACHIMANGU_Quiz.html');}, 2*1000);
         s = "八幡宮のクイズ";
-    } else {
+    }else if(la == 35.31 && lo == 139.53){
+        l = "/DAIBUTU_Quiz.html";
+        setTimeout(function(){window.open('/DAIBUTU_Quiz.html');}, 2*1000);
+        s = "大仏のクイズ";
+    }else if(la == 35.32 && lo == 139.56){
+        l = "/SUGIMOTODERA_Quiz.html";
+        setTimeout(function(){window.open('/SUGIMOTODERA_Quiz.html');}, 2*1000);
+        s = "杉本寺のクイズ";
+    }else if(la == 35.31 && lo == 139.55){
+        l = "/KAMAKURAEKI_Quiz.html";
+        setTimeout(function(){window.open('/KAMAKURAEKI_Quiz.html');}, 2*1000);
+        s = "鎌倉駅のクイズ";
+    }else {
         l = "";
         s = "クイズがありません";
     }
@@ -48,10 +60,13 @@ function test2(position) {
     <div class="p_prob">
       <div class="prob_ans" id="probN"></div>
       <div class="prob_ans" id="probM"></div>
+      <div class="prob_ans" id="probD"></div>
+      <div class="prob_ans" id="probS"></div>
+      <div class="prob_ans" id="probKS"></div>
     </div>
-    <div class="button-area">
+    <div class="button_area">
         <!-- spanタグにボタンの機能を持たせる -->
-        <span id="button_class">あなたの称号は？</span>
+          <span class="btn_class block_class" id="button_class">あなたの称号は？</span>
     </div>
 
 <!-- liffのjs -->
@@ -93,11 +108,17 @@ function test2(position) {
   if (snapshot.exists()) {
     document.getElementById("probN").innerHTML = '前回の鎌倉宮クイズの成績：'+snapshot.val()['probN'] + '問正解';
     document.getElementById("probM").innerHTML = '前回の八幡宮クイズの成績：'+snapshot.val()['probM'] + '問正解';
+    document.getElementById("probD").innerHTML = '前回の大仏クイズの成績：'+snapshot.val()['probD'] + '問正解';
+    document.getElementById("probS").innerHTML = '前回の杉本寺クイズの成績：'+snapshot.val()['probS'] + '問正解';
+    document.getElementById("probKS").innerHTML = '前回の鎌倉駅クイズの成績：'+snapshot.val()['probKS'] + '問正解';
   } else {
     set(ref(db, 'users/' + ID), {
     username: name,
     probN:0,
     probM:0,
+    probD:0,
+    probS:0,
+    probKS:0,
     class:'商人'
   });
   }

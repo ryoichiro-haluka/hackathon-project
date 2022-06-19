@@ -66,14 +66,44 @@ body {
     display: flex;
     justify-content: center;
     flex-flow: column;
+    padding-top:30px;
 }
 .prob_ans{
+    justify-content: center;
     color:#740A00;
-    font-size:4em;
+    font-size:2em;
     font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
     /* border-radius: 20px; 角を丸くする */
 }
 
+/*あなたの称号は？ボタン*/;
+
+.button_area{
+    display: flex;
+    justify-content: center;
+}
+.btn_class{
+    justify-content: center;
+	background:gold;
+    padding:0.7em 0.7em;
+    border:var(--main-bg-color) 4px solid;
+    text-decoration:none;
+    color:black;
+    font-size:2em;
+    font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+    border-radius: 15px; /*角を丸くする*/
+    text-align: center;
+    top:30px;
+}
+.btn_class:active{
+    background: rgb(148, 125, 0);
+}
+.block_class{
+    display:block;
+    width:300px;
+    margin:0 auto;
+    position: relative;/*今の位置を基準に動く*/
+}
 
 .result{
     display:block;
